@@ -1,4 +1,4 @@
-""" This is an implementation of the paper found here: http://www.cs.cmu.edu/~htong/pdf/ICME04_tong.pdf 
+""" This is an implementation of the paper found here: http://www.cs.cmu.edu/~htong/pdf/ICME04_tong.pdf
     Extended from https://gist.github.com/shahriman/3289170
 """
 from PIL import Image
@@ -8,10 +8,10 @@ import sys
 
 def detect_blurry_image(image, thresh=35, MinZero=0.05):
 
-    if type(image) is str: 
+    if type(image) is str:
         image = Image.open(sys.argv[1]).convert('F')
         image = numpy.asarray(image)
-    
+
     x_cropped = image[0:(numpy.shape(image)[0]/16)*16 - 1, \
                         0:(numpy.shape(image)[1]/16)*16 - 1]
 
@@ -85,14 +85,10 @@ def detect_blurry_image(image, thresh=35, MinZero=0.05):
                 EdgeMap[j].append(0)
 
     per = float(N_da) / N_edge
-    BlurExtent = float(N_brg) / N_rg
+    blurExtent = float(N_brg) / N_rg
 
-    if per > MinZero:
-        print 'Not blurred'
-        return False
-    else:
-        print 'Blurred'
-        return True
+    return per, blurExtent, bool(perValue < MinZero)
+
 
 if __name__=='__main__':
     detect_blurry_image(sys.argv[1])

@@ -1,6 +1,12 @@
-# detect-blurry image/video
-`detect-blurry-image.py` script is extended from [https://gist.github.com/shahriman/3289170](https://gist.github.com/shahriman/3289170)
+# detect-blurry video
 
-## Usage
+### Paper
+[Blur Detection for Digital Images Using Wavelet Transform](http://www.cs.cmu.edu/~htong/pdf/ICME04_tong.pdf)
 
-    python detect_blurry_video.py <image/video>
+### Usage
+
+Simple call:
+'python detect_blurry_video.py -i <video_path> -o <output_path>'
+
+Call with parameters:
+'python detect_blurry_video.py -i <video_path> -o <output_path>' -t <threshold> -m <min_zero> -f <frame_interval>
