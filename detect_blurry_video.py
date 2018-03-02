@@ -10,7 +10,7 @@ def detect_blurry(video_path, results_path, threshold, min_zero, frame_interval)
 
     video = cv2.VideoCapture(video_path)
     if not video.isOpened():
-        print "Error, could not open the video", video_name
+        print "Error, could not open the video", video_path
         sys.exit(1)
 
     total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -50,8 +50,10 @@ def detect_blurry(video_path, results_path, threshold, min_zero, frame_interval)
 
     if number_of_blur >= (total_frames/frame_interval*0.5):
         print 'A blurry video'
+        return 'Result: A blurry video'
     else:
-        print 'Not a blurry video'
+        print 'Result: Not a blurry video'
+        return 'Not a blurry video'
 
 
 if __name__=='__main__':

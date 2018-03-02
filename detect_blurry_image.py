@@ -1,6 +1,5 @@
-""" This is an implementation of the paper found here: http://www.cs.cmu.edu/~htong/pdf/ICME04_tong.pdf
-    Extended from https://gist.github.com/shahriman/3289170
-"""
+""" This is an implementation of the paper found here: http://www.cs.cmu.edu/~htong/pdf/ICME04_tong.pdf"""
+
 from PIL import Image
 import numpy
 import pywt
@@ -87,7 +86,7 @@ def detect_blurry_image(image, thresh=35, MinZero=0.05):
     per = float(N_da) / N_edge
     blurExtent = float(N_brg) / N_rg
 
-    return per, blurExtent, bool(perValue < MinZero)
+    return per, blurExtent, bool(per < MinZero)
 
 
 if __name__=='__main__':
