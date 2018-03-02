@@ -52,9 +52,8 @@ def detect_blurry(video_path, results_path, threshold, min_zero, frame_interval)
         print 'A blurry video'
         return 'Result: A blurry video'
     else:
-        print 'Result: Not a blurry video'
-        return 'Not a blurry video'
-
+        print 'Not a blurry video'
+        return 'Result: Not a blurry video'
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Blur detection for video')
